@@ -10,10 +10,10 @@ function Visible() {
         <Item className="container-fluid">
         <div className="row">
                 <div className="col-sm-12 col-md-12 col-lg-7">
-                    <span className="row ml-auto mx-auto text-center ml-md-4 ml-lg-4">
+                    <span className="row  mx-auto text-center ml-md-4 ml-lg-4">
                             {totalval.map((item)=> 
                             {
-                            return <div key={item} className="col-1 p-1 m-1 item"><div className={calledout.includes(item)?"found":"notfound"}  >
+                            return <div key={item} className="col-1 p-1 item"><div className={calledout.includes(item)?"found":"notfound"}  >
                                 {item}
                             </div>
                             </div>
@@ -68,6 +68,7 @@ const Item =styled.div
     overflow-X:hidden;
 .item{
     border:1px solid white;
+    margin:3px;
     
 }
 `
