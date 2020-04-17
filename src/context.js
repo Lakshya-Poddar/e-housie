@@ -21,19 +21,31 @@ constructor(props) {
          second:null,
          third:null,
          fourth:null,
-         fifth:null
+         fifth:null,
+         swap:false
     }
+}
+
+swap5=()=>{
+    this.setState(()=>{
+        return{
+            swap:!this.state.swap
+        }
+    },this.reset())
+}
+
+alert=()=>{
+   if(this.state.count!==1&&this.state.count%5===1 && this.state.swap===true)
+    window.alert("SWAP YOUR TICKETS!!")
 }
 
 
 
-
-
 generate =()=>{
-    let num1= Math.ceil(Math.random()*90)
+    let num1= Math.ceil((Math.random()*90000)/1000)
     while(this.state.calledout.includes(num1))
     {
-        num1= Math.ceil(Math.random()*90)
+        num1= Math.ceil((Math.random()*90000)/1000)
     }
         this.setState(()=>{
             return{
@@ -41,17 +53,20 @@ generate =()=>{
                 calledout:[num1,...this.state.calledout],
                 count:this.state.count+1,
                 first:num1,
-                   second:this.state.first,
+                second:this.state.first,
                 third:this.state.second,
                 fourth:this.state.third,
                 fifth:this.state.fourth
                 
             }
-        });
+        },this.alert());
+
         if(this.state.count===90)
         {
             this.reset() 
         }
+        
+        
           
     
 }
@@ -86,7 +101,11 @@ normalh=()=>{
 }
 
 
+
 reset=()=>{
+    var retVal = window.confirm("Do you want to continue ?");
+    if(retVal===true)
+    {
     this.setState(()=>{
         return{
             num:null,
@@ -100,6 +119,7 @@ reset=()=>{
         }
     },this.componentDidMount)
 }
+}
 
 
 
@@ -112,6 +132,7 @@ setProducts=()=>{
     this.setState(()=>{
         return{totalval:tempProducts}
     })
+    
 }
 
 
@@ -143,7 +164,9 @@ componentDidMount (){
                                             second:this.state.second,
                                             third:this.state.third,
                                             fourth:this.state.fourth,
-                                            fifth:this.state.fifth
+                                            fifth:this.state.fifth,
+                                            swap5:this.swap5,
+                                            swap:this.state.swap
                                             }}>
                 {this.props.children}
             </NumberContext.Provider>

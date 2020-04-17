@@ -3,14 +3,14 @@ import {NumberContext} from '../context'
 import styled from 'styled-components'
 function Visible() {
     const {totalval,calledout,first,second,third,fourth,fifth} =useContext(NumberContext)
-    const {generate , num,reset,plusone,plus,minusone,minus,normalh,normal} =useContext(NumberContext)
+    const {generate , num,reset,plusone,plus,minusone,minus,normalh,normal,swap,swap5} =useContext(NumberContext)
 
     
     return (
         <Item className="container-fluid">
         <div className="row">
                 <div className="col-sm-12 col-md-12 col-lg-7">
-                    <span className="row  mx-auto text-center ml-md-4 ml-lg-4">
+                    <span className="row text-center ml-md-4 ml-lg-4">
                             {totalval.map((item)=> 
                             {
                             return <div key={item} className="col-1 p-1 item"><div className={calledout.includes(item)?"found":"notfound"}  >
@@ -45,6 +45,7 @@ function Visible() {
                         <Gen  className={normal?"found col-12 col-md-12 mx-auto m-1 mt-lg-5 mb-lg-5 pt-2":"col-12 col-md-12 mx-auto m-1 mt-lg-5 mb-lg-5 pt-2"} onClick ={()=>normalh()} ><h4>NORMAL</h4></Gen>
                         <Gen className={plus?"found col-12 col-md-12 mx-auto m-1 mb-lg-5 pt-2":"col-12 col-md-12 mx-auto m-1 mb-lg-5 pt-2"} onClick ={()=>plusone()}><h4>PLUS ONE</h4></Gen>
                         <Gen className={minus?"found col-12 col-md-12 mx-auto m-1 mb-lg-5 pt-2":"col-12 col-md-12 mx-auto m-1 mb-lg-5 pt-2"} onClick ={()=>minusone()}><h4>MINUS ONE</h4></Gen>
+                        <Gen className={swap?"found col-12 col-md-12 mx-auto m-1 mb-lg-5 pt-2":"col-12 col-md-12 mx-auto m-1 mb-lg-5 pt-2"} onClick ={()=>swap5()}><h4>SWAP 5</h4></Gen>
                     </div>
                 </div>
         </div>
