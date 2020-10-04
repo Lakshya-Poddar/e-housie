@@ -47,6 +47,7 @@ generate =()=>{
     {
         num1= Math.ceil((Math.random()*90000)/1000)
     }
+        
         this.setState(()=>{
             return{
                 num:num1,
@@ -65,10 +66,34 @@ generate =()=>{
         {
             this.reset() 
         }
-        
-        
-          
-    
+}
+
+mirror =()=>{
+    let num1= Math.ceil((Math.random()*90000)/1000)
+    while(this.state.calledout.includes(num1))
+    {
+        num1= Math.ceil((Math.random()*90000)/1000)
+    }
+
+
+        this.setState(()=>{
+            return{
+                num:num1,
+                calledout:[num1,...this.state.calledout],
+                count:this.state.count+1,
+                first:num1,
+                second:this.state.first,
+                third:this.state.second,
+                fourth:this.state.third,
+                fifth:this.state.fourth
+                
+            }
+        },this.alert());
+
+        if(this.state.count===90)
+        {
+            this.reset() 
+        }
 }
 
 
@@ -103,9 +128,7 @@ normalh=()=>{
 
 
 reset=()=>{
-    var retVal = window.confirm("Do you want to continue ?");
-    if(retVal===true)
-    {
+    
     this.setState(()=>{
         return{
             num:null,
@@ -118,7 +141,7 @@ reset=()=>{
             fifth:null          
         }
     },this.componentDidMount)
-}
+
 }
 
 

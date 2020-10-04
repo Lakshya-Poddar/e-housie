@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.ehousie.twa",
+    "sha256_cert_fingerprints": [
+      "76:9D:27:E4:51:5E:B8:26:BB:95:B9:69:CD:9D:2C:85:C0:5A:37:74:D3:21:D3:B1:F0:58:B6:E1:69:1C:67:2F"
+    ]
+  }
+}]
